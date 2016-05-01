@@ -6,6 +6,7 @@ div ng-repeat=("post in posts | orderBy:'-upvotes'")
   span style=("font-size:20px; margin-left:10px;") 
     a href="#/posts/{{post.id}}" 
       | {{post.title}}
+    span style=("margin-left:10px;") posted by {{post.user.username}}
 form ng-submit="addPost()" style="margin-top:30px;" 
   h3 Add a new post
   .form-group

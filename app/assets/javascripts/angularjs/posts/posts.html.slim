@@ -5,7 +5,7 @@ div ng-repeat=("comment in post.comments | orderBy:'-upvotes'")
   span.fa.fa-thumbs-up.like ng-click="incrementUpvotes(comment)" 
     | {{comment.upvotes}}
   span style="margin-left:10px;" 
-    | {{comment.author}}
+    | {{comment.user.username}}
   span style=("font-size:20px; margin-left:10px;") 
     | {{comment.text}}
 form ng-submit="addComment()" style="margin-top:30px;" 

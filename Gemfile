@@ -22,6 +22,9 @@ gem "twitter-bootstrap-rails"
 gem 'angular_rails_csrf'
 gem 'devise'
 gem 'responders', '~> 2.0'
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

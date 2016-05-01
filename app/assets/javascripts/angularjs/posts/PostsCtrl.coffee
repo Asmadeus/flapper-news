@@ -15,10 +15,7 @@ angular.module('FlapperNews.PostsModule')
           author: 'user'
         ).then(
           (response) ->
-            console.log response
             $scope.post.comments.push(response.data)
-          (response) ->
-
         )
         $scope.text = ''
 

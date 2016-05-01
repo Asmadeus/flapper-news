@@ -2,6 +2,7 @@ angular.module('FlapperNews',[
   'FlapperNews.PostsModule'
   'templates'
   'ngRoute'
+  'Devise'
 ])
 .config(['$routeProvider', ($routeProvider) ->
   $routeProvider.when(
@@ -12,6 +13,14 @@ angular.module('FlapperNews',[
     '/posts/:postId'
     templateUrl: 'angularjs/posts/posts.html'
     controller: 'PostsCtrl'
+  ).when(
+    '/login'
+    templateUrl: 'angularjs/auth/login.html'
+    controller: 'AuthCtrl'
+  ).when(
+    '/register'
+    templateUrl: 'angularjs/auth/register.html'
+    controller: 'AuthCtrl'
   ).otherwise redirectTo: '/'
 ])
 
