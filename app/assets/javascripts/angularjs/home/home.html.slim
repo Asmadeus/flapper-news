@@ -1,0 +1,15 @@
+.page-header
+  h1 Flapper News
+div ng-repeat=("post in posts | orderBy:'-upvotes'") 
+  span.fa.fa-thumbs-up.like ng-click="incrementUpvotes(post)" 
+    | {{post.upvotes}}
+  span style=("font-size:20px; margin-left:10px;") 
+    a href="#/posts/{{$index}}" 
+      | {{post.title}}
+  span
+    a href="#/posts/{{$index}}"  Comments
+form ng-submit="addPost()" style="margin-top:30px;" 
+  h3 Add a new post
+  .form-group
+    input.form-control ng-model="title" placeholder="Title" type="text" /
+  button.btn.btn-primary type="submit"  Post

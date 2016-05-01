@@ -16,7 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'angular-ui-router-rails'
 gem "slim-rails"
+gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

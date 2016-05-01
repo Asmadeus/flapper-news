@@ -1,0 +1,15 @@
+.page-header
+  h3
+    | {{post.title}}
+div ng-repeat=("comment in post.comments | orderBy:'-upvotes'") 
+  span.fa.fa-thumbs-up.like ng-click="incrementUpvotes(comment)" 
+    | {{comment.upvotes}}
+  span style="margin-left:10px;" 
+    | {{comment.author}}
+  span style=("font-size:20px; margin-left:10px;") 
+    | {{comment.text}}
+form ng-submit="addComment()" style="margin-top:30px;" 
+  h3 Add a new comment
+  .form-group
+    input.form-control ng-model="text" placeholder="Comment" type="text" /
+  button.btn.btn-primary type="submit"  Post
