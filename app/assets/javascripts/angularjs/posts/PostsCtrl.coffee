@@ -4,16 +4,24 @@ angular.module('FlapperNews.PostsModule')
     '$routeParams'
     'postsService'
     ($scope,$routeParams,postsService) ->
-      $scope.post = postsService.posts[$routeParams.postId]
+      postsService.getSingle($routeParams.postId)
+      $scope.post = postsService.post
       $scope.addComment = ->
         if !$scope.text || $scope.text == ''
           return
-        $scope.post.comments.push(
-          author: 'John'
+        postsService.createComment(
+          $scope.post.id
           text: $scope.text
-          upvotes: 0
+          author: 'user'
+        ).then(
+          (response) ->
+            console.log response
+            $scope.post.comments.push(response.data)
+          (response) ->
+
         )
         $scope.text = ''
+
       $scope.incrementUpvotes = (comment) ->
-        comment.upvotes++
+        postsService.upvoteComment($scope.post, comment)
   ])

@@ -3,16 +3,16 @@ angular.module('FlapperNews')
     '$scope'
     'postsService'
     ($scope, postsService) ->
+      postsService.getAll()
       $scope.posts = postsService.posts
       $scope.addPost = ->
         if $scope.title == '' || !$scope.title
           return
-        $scope.posts.push(
+        postsService.createPost(
           title: $scope.title
-          upvotes: 0
         )
         $scope.title = ''
         return
       $scope.incrementUpvotes = (post) ->
-        post.upvotes++
+        postsService.upvote(post)
   ])
